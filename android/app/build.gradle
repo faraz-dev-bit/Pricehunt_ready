@@ -17,12 +17,13 @@ def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "
 
 android {
     namespace "com.pricehunt.app"
-    compileSdk 34
+    compileSdk 36
     ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -32,7 +33,7 @@ android {
     defaultConfig {
         applicationId "com.pricehunt.app"
         minSdk 21
-        targetSdk 34
+        targetSdk 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -52,4 +53,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    coreLibraryDesugaring 'com.android.tools.desugar_jdk_libs:2.0.4'
 }
